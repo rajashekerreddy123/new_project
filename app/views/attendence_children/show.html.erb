@@ -1,0 +1,18 @@
+<p>
+  <b>Attendence:</b>
+  <%=h @attendence_child.attendence_id %>
+</p>
+
+<p>
+  <b>St no:</b>
+  <%=h @attendence_child.st_no %>
+</p>
+
+<p>
+  <b>Presence:</b>
+  <%=h @attendence_child.presence %>
+</p>
+
+
+<%= link_to 'Edit', edit_attendence_child_path(@attendence_child) %> |
+<%= link_to 'Back', attendence_children_path %>

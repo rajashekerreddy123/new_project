@@ -1,0 +1,180 @@
+
+
+ <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+ <style type="text/css">
+
+        .accordion li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+            .loading {
+                display: none;
+            }
+            .accordion {
+                border: 1px solid #ccc;
+                width:  50%;
+            }
+                .accordion li h3 a {
+                    background:             #666;
+                    background:             #666 -webkit-gradient(linear, left top, left bottom, from(#999), to(#666)) no-repeat;
+                    background:             #666 -moz-linear-gradient(top,  #999,  #666) no-repeat;
+                    border-bottom:          1px solid #333;
+                    border-top:             1px solid #ccc;
+                    color:                  #fff;
+                    display:                block;
+                    font-style:             normal;
+                    margin:                 0;
+                    padding:                5px 10px;
+                    text-shadow:            0 -1px 2px #333, #ccc 0 1px 2px;
+                }
+                    .accordion li.active h3 a {
+                        background:             #369;
+                        background:             #369 -webkit-gradient(linear, left top, left bottom, from(#69c), to(#369)) no-repeat;
+                        background:             #369 -moz-linear-gradient(top,  #69c,  #369) no-repeat;
+                        border-bottom:          1px solid #036;
+                        border-top:             1px solid #9cf;
+                        text-shadow:            0 -1px 2px #036, #9cf 0 1px 2px;
+                    }
+                    .accordion li.locked h3 a {
+                        background:             #963;
+                        background:             #963 -webkit-gradient(linear, left top, left bottom, from(#c96), to(#963)) no-repeat;
+                        background:             #963 -moz-linear-gradient(top,  #c96,  #963) no-repeat;
+                        border-bottom:          1px solid #630;
+                        border-top:             1px solid #fc9;
+                        text-shadow:            0 -1px 2px #630, #fc9 0 1px 2px;
+                    }
+                .accordion li h3 {
+                    margin:         0;
+                    padding:        0;
+                }
+                .accordion .panel {
+                    padding:        10px;
+                }
+           /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 80px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 100px;
+        line-height: 1;
+      }
+      .jumbotron .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+    
+    </style>
+    </head>
+    <body>
+
+         <div class="jumbotron">
+        <h1 class="he">Marketing stuff!</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+        <img src="/home/kiran/Downloads/jquery-accordion-master/img/spa.png" />
+
+        <input type="file" name="pic" accept="image/*">
+        
+        <a class="btn btn-large btn-success" href="http://twitter.github.com/bootstrap/examples/justified-nav.html#">Get started today</a>
+      </div>
+        <div id="page">
+
+            <h1>Widgets: Accordion</h1>
+            
+
+            <p>This is a customisable accordion widget for jQuery. It gets around the
+            well documented jQuery animation jump issue of slideDown() by just not using it.</p>
+       
+            
+               <% form_for(@accordion) do |f| %>
+                  <%= f.error_messages %>
+            <div id="example2" class="accordion" style="background-color:gainsboro;">
+                <li>
+                    <h3>Handle 1</h3>
+                    <div class="panel loading">
+                         <%= f.text_field :heading, "placeholder"=>"Please Enter the Heading", :id=>"marketing", :value=>@heading %>
+                        <p>Plain old heading and paragraph content.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3>Image</h3>
+                    <div class="panel loading">
+                     <%= f.file_field :image, :id=>"image", :value=>@image %>
+                    </div>
+                </li>
+                <li>
+                    <h3>Descrption</h3>
+                    <div class="panel loading">
+                    <%= f.text_area :paragraph, :id=>"paragraph", :value=>@paragraph %>
+                    </div>
+                </li>
+                <li>
+                    <h3>Handle 4</h3>
+                    <div class="panel loading">
+                        <h4>A nested list of items</h4>
+                        <ul>
+                            <li>Item 1</li>
+                            <li>Item 2
+                                <ul>
+                                    <li>Subitem 1</li>
+                                    <li>Subitem 2</li>
+                                    <li>Subitem 3</li>
+                                </ul>
+                            </li>
+                            <li>Item 3</li>
+                            <li>Item 4</li>
+                            <li>Item 5</li>
+                        </ul>
+                    </div>
+                </li>
+
+                    <%= f.submit 'Create' %>
+                      <% end %>
+
+            </div>
+            
+            
+           
+        </div>
+        
+        
+        <%= javascript_include_tag "jquery-1.4.2.min.js","jquery.accordion.2.0.min.js"%>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+        <script type="text/javascript">
+         
+            $('#example2').accordion({
+                canToggle: true
+            });
+            $( ".accordion" ).draggable();
+
+            $(".loading").removeClass("loading");
+
+            $('input#marketing').keyup(function() {
+                  jQuery(".he").replaceWith("<h1 class='he'>"+jQuery(this).val()+"</h1>");
+                  })
+            $('textarea#paragraph').keyup(function() {
+                  jQuery(".lead").replaceWith("<p class='lead'>"+jQuery(this).val()+"</p>")
+                  })
+                   
+
+        </script>
+
+

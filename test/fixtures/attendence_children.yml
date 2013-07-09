@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  attendence_id: 1
+  st_no: MyString
+  presence: MyString
+
+two:
+  attendence_id: 1
+  st_no: MyString
+  presence: MyString

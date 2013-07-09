@@ -1,0 +1,22 @@
+<h1>Listing sass_pages</h1>
+
+<table>
+  <tr>
+    <th>Sass text</th>
+    <th>Sass name</th>
+  </tr>
+
+<% @sass_pages.each do |sass_page| %>
+  <tr>
+    <td><%=h sass_page.sass_text %></td>
+    <td><%=h sass_page.sass_name %></td>
+    <td><%= link_to 'Show', sass_page %></td>
+    <td><%= link_to 'Edit', edit_sass_page_path(sass_page) %></td>
+    <td><%= link_to 'Destroy', sass_page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sass_page', new_sass_page_path %>

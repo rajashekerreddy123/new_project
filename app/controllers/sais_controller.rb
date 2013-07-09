@@ -1,0 +1,2 @@
+class SaisController < ApplicationController
+end

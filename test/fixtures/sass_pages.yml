@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sass_text: MyString
+  sass_name: MyString
+
+two:
+  sass_text: MyString
+  sass_name: MyString

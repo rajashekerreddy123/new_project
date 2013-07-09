@@ -1,0 +1,2 @@
+module AttendenceChildrenHelper
+end

@@ -1,0 +1,5 @@
+<% @array.each do |x| %>
+<%=  hidden_field_tag("gods[]",'',:value=>x)%>
+<%= x %>
+<%= check_box_tag("presence[]",'yes',true) %>
+<% end %>

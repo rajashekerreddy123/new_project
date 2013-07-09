@@ -1,0 +1,24 @@
+<h1>Listing attendence_children</h1>
+
+<table>
+  <tr>
+    <th>Attendence</th>
+    <th>St no</th>
+    <th>Presence</th>
+  </tr>
+
+<% @attendence_children.each do |attendence_child| %>
+  <tr>
+    <td><%=h attendence_child.attendence_id %></td>
+    <td><%=h attendence_child.st_no %></td>
+    <td><%=h attendence_child.presence %></td>
+    <td><%= link_to 'Show', attendence_child %></td>
+    <td><%= link_to 'Edit', edit_attendence_child_path(attendence_child) %></td>
+    <td><%= link_to 'Destroy', attendence_child, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New attendence_child', new_attendence_child_path %>

@@ -1,0 +1,24 @@
+<h1>Editing attendence_child</h1>
+
+<% form_for(@attendence_child) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :attendence_id %><br />
+    <%= f.text_field :attendence_id %>
+  </p>
+  <p>
+    <%= f.label :st_no %><br />
+    <%= f.text_field :st_no %>
+  </p>
+  <p>
+    <%= f.label :presence %><br />
+    <%= f.text_field :presence %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @attendence_child %> |
+<%= link_to 'Back', attendence_children_path %>

@@ -1,0 +1,21 @@
+<%=stylesheet_link_tag "style" %>
+<h1 class="head">New sass_page</h1>
+
+<% form_for(@sass_page) do |f| %>
+  <%= f.error_messages %>
+  <p>writing sass</p>
+<table   border="1">
+    <tr>
+       <td><%= f.label :sass_text %></td>
+       <td><%= f.text_field :sass_text %></td>
+    </tr>
+    <tr>
+       <td><%= f.label :sass_name %></td>
+       <td><%= f.text_field :sass_name %></td>
+    </tr>
+</table>
+
+    <%= f.submit 'Create' %>
+<% end %>
+
+<%= link_to 'Back', sass_pages_path %>

@@ -1,0 +1,28 @@
+<h1>Listing accordions</h1>
+
+<table>
+  <tr>
+    <th>Heading</th>
+    <th>Image</th>
+    <th>Paragraph</th>
+  </tr>
+
+<% @accordions.each do |accordion| %>
+  <tr>
+    <td><%=h accordion.heading %></td>
+    <td><%=h accordion.image %></td>
+    <td><%=h accordion.paragraph %></td>
+    <td><%= link_to 'Show', accordion %></td>
+    <td><%= link_to 'Edit', edit_accordion_path(accordion) %></td>
+    <td><%= link_to 'Destroy', accordion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<p>
+  Download:
+  <%= link_to "CSV", accordions_path(format: "csv") %> |
+  <%= link_to "Excel", accordions_path(format: "xls") %>
+</p>
+<%= link_to 'New accordion', new_accordion_path %>

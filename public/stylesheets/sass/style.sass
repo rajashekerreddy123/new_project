@@ -1,0 +1,14 @@
+$color : red
+
+@mixin border($size1)
+  text-align: center
+  color : $color/$size1
+  
+p
+  $color: red
+.head
+  color: $color/3
+table
+  background-color: white
+  td 
+    @include border(2)
