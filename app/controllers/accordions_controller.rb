@@ -1,4 +1,9 @@
+require 'pdf/writer'
+require 'rubygems'
+
+
 class AccordionsController < ApplicationController
+
   # GET /accordions
   # GET /accordions.xml
   
@@ -13,11 +18,18 @@ class AccordionsController < ApplicationController
 
 def index
   @accordions = Accordion.all
-  respond_to do |format|
+  # respond_to do |format|
+  #   format.html
+  #   format.csv { send_data @accordions.to_csv }
+  #   format.xls # { send_data @products.to_csv(col_sep: "\t") }
+
+      respond_to do |format|
     format.html
-    format.csv { send_data @accordions.to_csv }
-    format.xls # { send_data @products.to_csv(col_sep: "\t") }
+    format.pdf do
+      send_data ProductDrawer.draw(@accordions), :filename => 'accordions.pdf', :type => 'application/pdf', :disposition => 'inline'
+    end
   end
+
 end
 
   # GET /accordions/1
@@ -31,6 +43,19 @@ end
     end
   end
 
+def memo
+  @notes_all = NotesManager.all
+end
+def update_note
+  n = NotesManager.find_by_note_id(params[:note_id])
+  n.update_attributes(:description=>params[:description])
+end
+def create_note
+    NotesManager.create(:note_id=>params[:note_id])
+end
+def delete_note
+    NotesManager.find_by_note_id(params[:note_id]).delete
+end
   # GET /accordions/new
   # GET /accordions/new.xml
   def new
@@ -45,7 +70,7 @@ end
       @image = first.image
       @paragraph = first.paragraph
      end
-
+     
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @accordion }
@@ -57,6 +82,7 @@ end
     @accordion = Accordion.find(params[:id])
   end
 
+  
   # POST /accordions
   # POST /accordions.xml
   def create

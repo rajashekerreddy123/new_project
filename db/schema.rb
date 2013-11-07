@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708104344) do
+ActiveRecord::Schema.define(:version => 20130829063251) do
 
   create_table "accordions", :force => true do |t|
     t.string   "heading"
@@ -34,9 +34,27 @@ ActiveRecord::Schema.define(:version => 20130708104344) do
     t.datetime "updated_at"
   end
 
+  create_table "notes_managers", :force => true do |t|
+    t.integer  "note_id"
+    t.integer  "accordion_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sass_pages", :force => true do |t|
     t.string   "sass_text"
     t.string   "sass_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_birthdaymails", :force => true do |t|
+    t.string   "all"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "before_days"
+    t.string   "template"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

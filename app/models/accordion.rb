@@ -1,4 +1,5 @@
 class Accordion < ActiveRecord::Base
+	has_many :notes_manager
 	def self.to_csv(options = {})
   		CSV.generate(options) do |csv|
     		csv << column_names

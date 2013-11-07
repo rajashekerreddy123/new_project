@@ -1,0 +1,39 @@
+<script type="text/javascript" src="http://www.jquery-sticky-notes.com/script/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="http://www.jquery-sticky-notes.com/script/jquery-ui-1.7.2.custom.min.js"></script>
+<%= javascript_include_tag "jquery.stickynotes.js"%>
+<%= stylesheet_link_tag "jquery.stickynotes.css" %>
+<div id="notes" style="height:100%;">
+</div>
+<%= hidden_field_tag :last_note_id, '', :value=> @notes_all.blank? ? 0 : @notes_all.last.note_id %>
+
+<%= hidden_field_tag :user_id, '', :value=> 1 %>
+
+ <script type="text/javascript">
+        // wait for the DOM to be loaded
+        // $(document).ready(function() {
+
+        //     $('#notes').stickyNotes();
+        // });
+
+        jQuery(document).ready(function() {
+        	<% unless  @notes_all.blank? %>
+        	<% @notes_all.each do |x| %>
+				var options = {
+					notes:[{"id":<%= x.note_id %>,
+					      "text":'<%= x.description.blank? ? "" : x.description.to_s %>',
+					      "permissions":'<%= x.accordion_id %>',
+						  "pos_x": 50,
+						  "pos_y": 50,	
+						  "width": 200,
+						  "height": 200													
+					    }]
+				};
+				jQuery("#notes").stickyNotes(options);
+				<% end %>
+				<% else %>
+				jQuery("#notes").stickyNotes();
+				<% end %>
+
+			});
+
+    </script>

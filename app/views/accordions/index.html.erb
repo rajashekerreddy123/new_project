@@ -1,3 +1,5 @@
+<p><%= link_to 'PDF Format', formatted_accordions_path(:pdf) %></p>
+
 <h1>Listing accordions</h1>
 
 <table>
@@ -22,7 +24,7 @@
 <br />
 <p>
   Download:
-  <%= link_to "CSV", accordions_path(format: "csv") %> |
-  <%= link_to "Excel", accordions_path(format: "xls") %>
+  <%#= link_to "CSV", accordions_path(format: "csv") %> |
+  <%#= link_to "Excel", accordions_path(format: "xls") %>
 </p>
 <%= link_to 'New accordion', new_accordion_path %>

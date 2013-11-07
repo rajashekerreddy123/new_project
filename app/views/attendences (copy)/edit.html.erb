@@ -1,0 +1,20 @@
+<h1>Editing attendence</h1>
+
+<% form_for(@attendence) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :group %><br />
+    <%= f.text_field :group %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @attendence %> |
+<%= link_to 'Back', attendences_path %>

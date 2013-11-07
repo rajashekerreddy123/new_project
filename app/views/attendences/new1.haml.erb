@@ -1,0 +1,47 @@
+%h1 New attendence
+- form_for(@attendence) do |f|
+  = f.error_messages
+  %p
+    = f.label :group
+    %br/
+    = f.text_field :group
+  %p
+    = f.label :year
+    %br/
+    = f.text_field :year
+  #attendence_year1
+  %p
+    = f.submit 'Create'
+= link_to 'Back', attendences_path
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"}
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"}
+:javascript
+  jQuery('#attendence_year').click(function(){
+    $.ajax({
+         url: '/attendences/get_attendence/1',
+         data: { 'val': $(this).val()},
+        success: function (data) {
+            document.getElementById('attendence_year1').innerHTML=data
+        },
+        error: function () {
+          alert("error")
+        }
+    });
+  
+    // req = new Ajax.Request('/attendences/get_attendence/1', {
+    //     method: 'get',
+    //     parameters: { 'val': $(this).val() },
+    //     onComplete: function(transport) {
+    //     processReqChange(transport);
+    //     }
+    //   }); 
+    //   function processReqChange(req) 
+    //   {
+    //     if (req.readyState == 4) {
+    //       var results = req.responseText;
+    //     }
+    //     else{
+    //       alert("error")
+    //     }
+    //   }
+  })

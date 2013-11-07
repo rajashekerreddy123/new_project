@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  all: MyString
+  from_date: 2013-07-12
+  to_date: 2013-07-12
+  before_days: 1
+  template: MyString
+
+two:
+  all: MyString
+  from_date: 2013-07-12
+  to_date: 2013-07-12
+  before_days: 1
+  template: MyString

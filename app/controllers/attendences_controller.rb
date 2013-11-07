@@ -1,6 +1,7 @@
 class AttendencesController < ApplicationController
   # GET /attendences
   # GET /attendences.xml
+  include ForTesting
   def index
     @attendences = Attendence.all
 
@@ -25,13 +26,18 @@ class AttendencesController < ApplicationController
   # GET /attendences/new.xml
   def new
     @attendence = Attendence.new
-
+    Sairam1.printing
+    Sairam::Test.im_awesome
+    puts Sairam.withotclass1,"dddddddddddddd"
+ram(s={'sai'=>:ram,"kumar"=>:swamy})
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @attendence }
     end
   end
-
+def ram(y)
+  puts y.class,"rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+end
   # GET /attendences/1/edit
   def edit
     @attendence = Attendence.find(params[:id])
@@ -41,24 +47,25 @@ class AttendencesController < ApplicationController
   # POST /attendences.xml
   def create
     @attendence = Attendence.new(params[:attendence])
-    gods = params[:gods]
-    presence = params[:presence]
-    s=""
-    hash={}
-    for i in 0...presence.length
-      hash.store('st_no',gods[i])
-      hash.store('pr_no',presence[i])
-      s+=hash.to_s
-    end
+#     gods = params[:gods]
+#     presence = params[:presence]
+#     s=""
+#     hash={}
+#     for i in 0...presence.length
+#       hash.store('st_no',gods[i])
+#       hash.store('pr_no',presence[i])
+#       s+=hash.to_s
+#     end
+#     gods=["ram","laxman","hanuman","sai"]
+#     presence=["yes","no","yes","no"]
+#     s1=""
+#     for i in 0...presence.length
+#       hash.store('st_no',gods[i])
+#       hash.store('pr_no',presence[i])
+#       s1+=hash.to_s
+#     end
 
-    for i in 0...presence.length
-      hash.store('st_no',gods[i])
-      hash.merge('pr_no',presence[i])
-      s+=hash.to_s
-    end
-
-    puts s,"rrr000000000777777777777777123"
-    puts hash
+# output i want : {{"st_no"=>"ram", "pr_no"=>"yes"},{"st_no"=>"laxman", "pr_no"=>"no"},{"st_no"=>"hanuman", "pr_no"=>"yes"},{"st_no"=>"sai", "pr_no"=>"no"}}
     respond_to do |format|
       if @attendence.save
         flash[:notice] = 'Attendence was successfully created.'

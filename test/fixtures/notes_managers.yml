@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  note_id: 1
+  accordion_id: 1
+  description: MyText
+
+two:
+  note_id: 1
+  accordion_id: 1
+  description: MyText

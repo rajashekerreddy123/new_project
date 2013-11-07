@@ -1,0 +1,9 @@
+%p
+  %b Group:
+  = h @attendence.group
+%p
+  %b Year:
+  = h @attendence.year
+= link_to 'Edit', edit_attendence_path(@attendence)
+|
+\#{link_to 'Back', attendences_path}
